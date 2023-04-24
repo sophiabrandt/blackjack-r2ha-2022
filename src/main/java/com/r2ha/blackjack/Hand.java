@@ -1,10 +1,10 @@
 package com.r2ha.blackjack;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static org.fusesource.jansi.Ansi.ansi;
 
 public class Hand {
     private final List<Card> cards = new ArrayList<>();
@@ -36,7 +36,7 @@ public class Hand {
     }
 
     String displayFaceUpCard() {
-        return cards.get(0).display();
+        return ConsoleCard.display(cards.get(0));
     }
 
     boolean dealerMustDrawCard() {
@@ -45,7 +45,7 @@ public class Hand {
 
     void display() {
         System.out.println(cards.stream()
-                                .map(Card::display)
+                .map(ConsoleCard::display)
                                 .collect(Collectors.joining(
                                         ansi().cursorUp(6).cursorRight(1).toString())));
     }

@@ -1,10 +1,7 @@
 package com.r2ha.blackjack;
 
-import org.fusesource.jansi.Ansi;
-
-import static org.fusesource.jansi.Ansi.ansi;
-
 public class Card {
+
     private final Suit suit;
     private final Rank rank;
 
@@ -14,32 +11,22 @@ public class Card {
     }
 
     public int rankValue() {
-        return rank.value();
+        return rank().value();
     }
 
-    public String display() {
-        String[] lines = new String[7];
-        lines[0] = "┌─────────┐";
-        lines[1] = String.format("│%s%s       │", rank.display(), rank == Rank.TEN ? "" : " ");
-        lines[2] = "│         │";
-        lines[3] = String.format("│    %s    │", suit.symbol());
-        lines[4] = "│         │";
-        lines[5] = String.format("│       %s%s│", rank == Rank.TEN ? "" : " ", rank.display());
-        lines[6] = "└─────────┘";
+    public Suit suit() {
+        return suit;
+    }
 
-        Ansi.Color cardColor = suit.isRed() ? Ansi.Color.RED : Ansi.Color.BLACK;
-        return ansi()
-                .fg(cardColor).toString()
-                + String.join(ansi().cursorDown(1)
-                                    .cursorLeft(11)
-                                    .toString(), lines);
+    public Rank rank() {
+        return rank;
     }
 
     @Override
     public String toString() {
         return "Card {" +
                 "suit=" + suit +
-                ", rank=" + rank +
+                ", rank=" + rank() +
                 '}';
     }
 
@@ -51,13 +38,13 @@ public class Card {
         Card card = (Card) o;
 
         if (!suit.equals(card.suit)) return false;
-        return rank.equals(card.rank);
+        return rank().equals(card.rank);
     }
 
     @Override
     public int hashCode() {
         int result = suit.hashCode();
-        result = 31 * result + rank.hashCode();
+        result = 31 * result + rank().hashCode();
         return result;
     }
 }
