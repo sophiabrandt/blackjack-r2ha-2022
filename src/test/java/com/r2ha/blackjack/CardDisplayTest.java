@@ -26,4 +26,22 @@ public class CardDisplayTest {
                 "[31m┌─────────┐[1B[11D│7        │[1B[11D│         │[1B[11D│    ♥    │[1B[11D│         │[1B[11D│        7│[1B[11D└─────────┘"
         );
     }
+
+    @Test
+    public void displayRedCard() throws Exception {
+        Card card = new Card(DUMMY_SUIT, Rank.KING);
+
+        assertThat(ConsoleCard.display(card)).isEqualTo(
+                "[31m┌─────────┐[1B[11D│K        │[1B[11D│         │[1B[11D│    ♥    │[1B[11D│         │[1B[11D│        K│[1B[11D└─────────┘"
+        );
+    }
+
+    @Test
+    public void displayBlackCard() throws Exception {
+        Card card = new Card(Suit.CLUBS, Rank.SEVEN);
+
+        assertThat(ConsoleCard.display(card)).isEqualTo(
+                "[30m┌─────────┐[1B[11D│7        │[1B[11D│         │[1B[11D│    ♣    │[1B[11D│         │[1B[11D│        7│[1B[11D└─────────┘"
+        );
+    }
 }
