@@ -19,7 +19,7 @@ public class Hand {
         return cards.get(0);
     }
 
-    private int value() {
+    public int value() {
         int handValue = cards()
                 .mapToInt(Card::rankValue)
                 .sum();
@@ -60,10 +60,6 @@ public class Hand {
 
     boolean beats(Hand hand) {
         return hand.value() < value();
-    }
-
-    String displayValue() {
-        return String.valueOf(value());
     }
 
     public boolean valueEquals(int target) {
