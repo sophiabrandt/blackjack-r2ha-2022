@@ -1,11 +1,11 @@
 package com.r2ha.blackjack;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
 import java.util.Scanner;
-
-import static org.fusesource.jansi.Ansi.ansi;
 
 public class Game {
 
@@ -130,7 +130,7 @@ public class Game {
     private void displayGameState() {
         System.out.print(ansi().eraseScreen().cursor(1, 1));
         System.out.println("Dealer has: ");
-        System.out.println(dealerHand.displayFaceUpCard());
+        System.out.println(ConsoleHand.displayFaceUpCard(dealerHand));
 
         // second card is the hole card, which is hidden, or "face down"
         displayBackOfCard();

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class Hand {
+
     private final List<Card> cards = new ArrayList<>();
 
     public Hand(List<Card> cards) {
@@ -12,6 +13,10 @@ public class Hand {
     }
 
     public Hand() {
+    }
+
+    public Card faceUpCard() {
+        return cards.get(0);
     }
 
     private int value() {
@@ -35,10 +40,6 @@ public class Hand {
     public Stream<Card> cards() {
         return cards
                 .stream();
-    }
-
-    String displayFaceUpCard() {
-        return ConsoleCard.display(ConsoleHand.faceUpCard(cards));
     }
 
     boolean dealerMustDrawCard() {
