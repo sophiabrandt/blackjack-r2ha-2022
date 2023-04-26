@@ -1,10 +1,8 @@
 package com.r2ha.blackjack;
 
-import static org.fusesource.jansi.Ansi.ansi;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Hand {
     private final List<Card> cards = new ArrayList<>();
@@ -17,8 +15,7 @@ public class Hand {
     }
 
     private int value() {
-        int handValue = cards
-                .stream()
+        int handValue = cards()
                 .mapToInt(Card::rankValue)
                 .sum();
 
@@ -35,6 +32,11 @@ public class Hand {
         return handValue;
     }
 
+    public Stream<Card> cards() {
+        return cards
+                .stream();
+    }
+
     String displayFaceUpCard() {
         return ConsoleCard.display(ConsoleHand.faceUpCard(cards));
     }
@@ -44,14 +46,7 @@ public class Hand {
     }
 
     void display() {
-        System.out.println(cardsAsString());
-    }
-
-    public String cardsAsString() {
-        return cards.stream()
-                .map(ConsoleCard::display)
-                .collect(Collectors.joining(
-                        ansi().cursorUp(6).cursorRight(1).toString()));
+        System.out.println(ConsoleHand.cardsAsString(this));
     }
 
     public void drawFrom(Deck deck) {
