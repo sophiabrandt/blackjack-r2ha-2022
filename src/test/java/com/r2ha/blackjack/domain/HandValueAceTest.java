@@ -1,7 +1,9 @@
-package com.r2ha.blackjack;
+package com.r2ha.blackjack.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.r2ha.blackjack.Rank;
+import com.r2ha.blackjack.Suit;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

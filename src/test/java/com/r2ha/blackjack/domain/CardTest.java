@@ -1,8 +1,11 @@
-package com.r2ha.blackjack;
+package com.r2ha.blackjack.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.fusesource.jansi.Ansi.ansi;
 
+import com.r2ha.blackjack.Rank;
+import com.r2ha.blackjack.Suit;
+import com.r2ha.blackjack.adapter.in.console.ConsoleCard;
 import org.junit.jupiter.api.Test;
 
 class CardTest {

@@ -1,7 +1,10 @@
-package com.r2ha.blackjack;
+package com.r2ha.blackjack.adapter.in.console;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.r2ha.blackjack.Rank;
+import com.r2ha.blackjack.Suit;
+import com.r2ha.blackjack.domain.Card;
 import org.junit.jupiter.api.Test;
 
 public class CardDisplayTest {

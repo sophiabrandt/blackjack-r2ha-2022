@@ -1,4 +1,7 @@
-package com.r2ha.blackjack;
+package com.r2ha.blackjack.domain;
+
+import com.r2ha.blackjack.Rank;
+import com.r2ha.blackjack.Suit;
 
 public class Card {
 

@@ -1,10 +1,14 @@
-package com.r2ha.blackjack;
+package com.r2ha.blackjack.domain;
+
+import com.r2ha.blackjack.Rank;
+import com.r2ha.blackjack.Suit;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Deck {
+
     private final List<Card> cards = new ArrayList<>();
 
     public Deck() {
